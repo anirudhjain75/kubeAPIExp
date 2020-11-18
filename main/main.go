@@ -1,7 +1,9 @@
 package main
 
-import "KubeAPIExp"
+import (
+	"KubeAPIExp/Utils"
+)
 
 func main() {
-	KubeAPIExp.GetLogsFromPod("localhost:8001", "default", "nginx")
+	Utils.GetLogsFromPod("localhost:8001", "default", "nginx")
 }
