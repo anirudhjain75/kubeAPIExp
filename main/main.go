@@ -2,8 +2,12 @@ package main
 
 import (
 	"KubeAPIExp/Utils"
+	"log"
 )
 
 func main() {
-	Utils.GetLogsFromPod("localhost:8001", "default", "nginx")
+	err := Utils.ExecFunction()
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 }
