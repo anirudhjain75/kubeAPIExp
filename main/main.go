@@ -2,12 +2,8 @@ package main
 
 import (
 	"KubeAPIExp/Utils"
-	"log"
 )
 
 func main() {
-	err := Utils.ExecFunction()
-	if err != nil {
-		log.Fatal(err.Error())
-	}
+	Utils.GetLogs("default", "nginx-d46f5678b-7vd9j", []string{"nginx"})
 }

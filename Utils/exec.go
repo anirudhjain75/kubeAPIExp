@@ -27,7 +27,7 @@ func init() {
 	clientset, err = kubernetes.NewForConfig(config)
 }
 
-func ExecFunction() error {
+func ExecFunction(resourceName string, command []string, namespace string) error {
 
 	var err error
 
@@ -46,9 +46,9 @@ func ExecFunction() error {
 		Executor: &Structs.DefaultRemoteExecutor{},
 	}
 
-	options.ResourceName = "nginx"
-	options.Command = []string{"echo", "I'm from within Pod"}
-	options.Namespace = "default"
+	options.ResourceName = resourceName
+	options.Command = command
+	options.Namespace = namespace
 	options.EnforceNamespace = false
 	options.ExecutablePodFn = polymorphichelpers.AttachablePodForObjectFn
 	options.Builder = f.NewBuilder
